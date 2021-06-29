@@ -17,9 +17,8 @@ app.use(express.static(__dirname + "/public"));
 
 app.get("/", function(req, res){
 
+    rollbar.error("ERROR");
     res.sendFile( path.join(__dirname, "./public/index.html") );
-    asdf();
-    rollbar.error("Something went wrong");
     
 })
 
