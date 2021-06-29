@@ -1,5 +1,5 @@
 document.getElementById("btn").onclick = function () {
-    axios.get("http://localhost:5050/api")
+    axios.get("https://traceability123.herokuapp.com/api")
         .then(function (response) {
           const data = response.data;
           
