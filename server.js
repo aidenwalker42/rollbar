@@ -26,6 +26,15 @@ app.get("/api/", function(req, res){
     res.status(200).send("Hello")
 })
 
+app.get("/api/err", function(req, res){
+    try {
+        doSomething();
+      } catch (e) {
+        Rollbar.error("Something went wrong", e);
+    }
+    res.status(200).send("Error Test")
+})
+
 
 
 const port = process.env.PORT || 5050;
