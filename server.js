@@ -18,6 +18,8 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", function(req, res){
 
     res.sendFile( path.join(__dirname, "./public/index.html") );
+    asdf();
+    rollbar.error("Something went wrong");
     
 })
 
@@ -27,8 +29,7 @@ app.get("/api/", function(req, res){
 })
 
 app.get("/api/err", function(req, res){
-    asdf();
-    rollbar.error("Something went wrong");
+    res.status(200).send("error");
 })
 
 const port = process.env.PORT || 5050;
