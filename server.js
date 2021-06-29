@@ -27,11 +27,8 @@ app.get("/api/", function(req, res){
 })
 
 app.get("/api/err", function(req, res){
-    try {
-        doSomething();
-      } catch (e) {
-        Rollbar.error("Something went wrong", e);
-    }
+    error();
+    rollbar.critical("Something went wrong");
     res.status(200).send("Error Test")
 })
 
