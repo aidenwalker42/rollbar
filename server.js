@@ -1,7 +1,12 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
+const Rollbar = require("rollbar");
+const rollbar = new Rollbar({
+  accessToken: '10e82bfaacb74fe08ebe93277bd57f31',
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
 const path = require("path")
 
 app.use(cors());
@@ -17,6 +22,7 @@ app.get("/", function(req, res){
 })
 
 app.get("/api/", function(req, res){
+    rollbar.log("SUCCESS!");
     res.status(200).send("Hello")
 })
 
