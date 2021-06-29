@@ -6,7 +6,7 @@ document.getElementById("btn").onclick = function () {
         });
   };
 
-  document.getElementById("btn").onclick = function () {
+  document.getElementById("btn2").onclick = function () {
     axios.get("https://traceability123.herokuapp.com/api/err")
         .then(function (response) {
           const data = response.data;
